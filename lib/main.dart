@@ -11,3 +11,4 @@ void main() {
 //  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);//nao esquecer do imports la em cima 
   runApp(App());
 }
+//vamo ve se vai
