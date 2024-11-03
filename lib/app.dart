@@ -14,8 +14,8 @@ class App extends StatelessWidget {
       routes: {
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegisterScreen(),
-        '/lista': (context) => ScanScreen(), //importei a pagina
-        '/details': (context) => ResultScreen(), //importei a pagina
+        '/scan': (context) => ScanScreen(),
+        '/details': (context) => ResultScreen(),
       },
       initialRoute: '/login',
     );
