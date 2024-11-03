@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 //import 'dart:io';
@@ -22,6 +23,10 @@ class ScanScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('TATOO SCAN'),
+        leading: IconButton(
+          onPressed: () => signOut(context),
+          icon: Icon(Icons.logout),
+        ),
       ),
       body: Center(
         child: Column(
@@ -50,5 +55,9 @@ class ScanScreen extends StatelessWidget {
       ),
     );
   }
-}
 
+  void signOut(BuildContext context) async {
+    await (FirebaseAuth.instance).signOut();
+    Navigator.pushReplacementNamed(context, '/login');
+  }
+}

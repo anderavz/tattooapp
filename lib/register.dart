@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class RegisterScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  var namecontroller = TextEditingController();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   Future<User?> signUp(String email, String password) async {
@@ -13,6 +14,7 @@ class RegisterScreen extends StatelessWidget {
         email: email,
         password: password,
       );
+      await userCredential.user!.updateDisplayName(namecontroller.text);
 
       return userCredential.user;
     } on FirebaseAuthException catch (e) {
@@ -66,6 +68,7 @@ class RegisterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              controller: namecontroller,
               decoration: InputDecoration(
                 labelText: 'NOME COMPLETO',
                 border: OutlineInputBorder(),
